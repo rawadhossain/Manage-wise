@@ -1,8 +1,8 @@
 "use server";
 
 import { getServerSession } from "next-auth";
-import { z } from "zod";
 import prisma from "@/lib/db";
+import { z } from "zod";
 
 const TaskSchema = z.object({
 	title: z.string(),
@@ -10,21 +10,23 @@ const TaskSchema = z.object({
 	dueDate: z.date().nullable(),
 });
 
-export async function createTask(title: string, description: string, dueDate: Date) {
+export async function updateTask(
+	taskId: number,
+	title: string,
+	description: string,
+	dueDate: Date | null
+) {
 	const session = await getServerSession();
 
-	console.log("Session:", session);
 	if (!session) {
-		throw new Error("You must be signed in to create a task");
+		throw new Error("You must be signed in to update a task");
 	}
 
 	const userEmail = session.user?.email;
 
 	try {
 		const findUser = await prisma.user.findUnique({
-			where: {
-				email: userEmail as string,
-			},
+			where: { email: userEmail as string },
 		});
 
 		if (!findUser) {
@@ -37,22 +39,21 @@ export async function createTask(title: string, description: string, dueDate: Da
 			throw new Error("Invalid task data");
 		}
 
-		const task = await prisma.task.create({
+		const updatedTask = await prisma.task.update({
+			where: {
+				id: taskId,
+				userId: findUser.id,
+			},
 			data: {
 				title: parse.data.title,
 				description: parse.data.description,
 				dueDate: parse.data.dueDate,
-				userId: findUser.id,
 			},
 		});
 
-		if (!task) {
-			throw new Error("Failed to create task");
-		}
-
-		return task;
+		return updatedTask;
 	} catch (error) {
-		console.error("Error creating task:", error);
-		throw new Error("Failed to create task");
+		console.error("Error updating task:", error);
+		throw new Error("Failed to update task");
 	}
 }

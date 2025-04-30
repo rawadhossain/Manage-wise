@@ -17,7 +17,7 @@ export default function SignInSignUp() {
 	const user = session.data?.user;
 	React.useEffect(() => {
 		if (user) {
-			router.push("/home");
+			router.push("/tasks");
 		}
 	}, [user, router]);
 
@@ -38,7 +38,7 @@ export default function SignInSignUp() {
 			setError("Invalid email or password. Please try again.");
 		} else {
 			toast.success("You've successfully logged in.");
-			router.push("/home");
+			router.push("/tasks");
 		}
 	};
 
@@ -47,7 +47,7 @@ export default function SignInSignUp() {
 			<div className="border border-gray-200 dark:border-gray-700 rounded-lg shadow-xl dark:shadow-gray-800 p-8 max-w-md w-full">
 				<div className="text-center mb-8">
 					<h1 className="text-3xl font-bold text-gray-900 dark:text-white">
-						Welcome to <span className="text-blue-600 font-bold">Feed-Wall</span>
+						Welcome to <span className="text-blue-600 font-bold">ManageWise</span>
 					</h1>
 					<p className="text-gray-600 dark:text-gray-400 mt-2">
 						Login or create your account
@@ -95,7 +95,7 @@ export default function SignInSignUp() {
 					</div>
 					<button
 						type="submit"
-						className="w-full bg-blue-600 hover:bg-blue-700 text-white flex rounded-md h-10 items-center justify-center text-sm"
+						className="cursor-pointer w-full bg-blue-600 hover:bg-blue-700 text-white flex rounded-md h-10 items-center justify-center text-sm"
 						disabled={isLoading}
 					>
 						{isLoading ? (
@@ -111,7 +111,7 @@ export default function SignInSignUp() {
 				<div className="mt-6">
 					<button
 						onClick={() => signIn("google")}
-						className="w-full bg-white dark:bg-gray-700 text-gray-900 dark:text-white border border-gray-300 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-600 flex rounded-md h-10 items-center justify-center text-sm"
+						className="w-full bg-white dark:bg-gray-700 text-gray-900 dark:text-white border border-gray-300 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-600 flex rounded-md h-10 items-center justify-center text-sm cursor-pointer"
 					>
 						<FaGoogle className="mr-2" />
 						Continue with Google

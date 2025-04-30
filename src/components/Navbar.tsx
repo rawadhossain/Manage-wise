@@ -2,7 +2,7 @@
 
 import { signIn, signOut, useSession } from "next-auth/react";
 import { ThemeToggle } from "./Themetoggle";
-import { GithubIcon, ListMinus, TwitterIcon, Menu, X } from "lucide-react";
+import { GithubIcon, ListMinus, TwitterIcon, Menu, X, ListChecks } from "lucide-react";
 import Link from "next/link";
 
 import { useState, useEffect, useRef } from "react";
@@ -10,12 +10,12 @@ import { useState, useEffect, useRef } from "react";
 const socialLinks = [
 	{
 		name: "GitHub",
-		href: "https://github.com/pankajkumardev/feedwall",
+		href: "https://github.com/rawadhossain",
 		icon: GithubIcon,
 	},
 	{
 		name: "Twitter",
-		href: "https://twitter.com/pankajkumar_dev",
+		href: "https://twitter.com/RawadHossain",
 		icon: TwitterIcon,
 	},
 ] as const;
@@ -38,15 +38,15 @@ export default function Navbar() {
 		};
 	}, []);
 	return (
-		<div className="sticky top-0 z-50 py-5 w-full bg-white/90 backdrop-blur-md dark:bg-[#121212]/90 sm:px-6 px-4 dark:border-gray-700">
+		<div className="sticky top-0 z-50 py-5 w-full bg-white/90 backdrop-blur-md dark:bg-[#0a0a0a]/90 sm:px-6 px-4 dark:border-gray-700">
 			<div className="container flex h-12 items-center justify-between">
 				<div className="flex gap-4 items-center">
 					<Link href="/" className="flex items-center space-x-2">
-						<ListMinus className="h-6 w-6" />
+						<ListChecks className="h-6 w-6" />
 
 						<h1 className="text-xl text-blue-500 font-medium cursor-pointer">
-							Feed
-							<span className="text-slate-800 dark:text-[#E7E9EC]">-Wall</span>
+							Manage
+							<span className="text-slate-800 dark:text-[#E7E9EC]">Wise</span>
 						</h1>
 					</Link>
 				</div>
@@ -69,14 +69,14 @@ export default function Navbar() {
 						{session.data?.user ? (
 							<button
 								onClick={() => signOut()}
-								className="px-6 py-1 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition-colors"
+								className="px-6 py-1 bg-blue-500 text-white rounded-md hover:bg-blue-700 transition-colors cursor-pointer"
 							>
 								Logout
 							</button>
 						) : (
 							<button
 								onClick={() => signIn()}
-								className="px-6 py-1 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition-colors"
+								className="px-6 py-1 bg-blue-500 text-white rounded-md hover:bg-blue-700 transition-colors cursor-pointer"
 							>
 								Login
 							</button>
@@ -115,6 +115,7 @@ export default function Navbar() {
 											href={link.href}
 											target="_blank"
 											rel="noopener noreferrer"
+											cursor-pointer
 											className="flex items-center gap-2 p-2 rounded-md text-muted-foreground hover:text-foreground transition-colors"
 											aria-label={link.name}
 										>
@@ -140,7 +141,7 @@ export default function Navbar() {
 												signIn();
 												setIsMenuOpen(false);
 											}}
-											className="w-full px-6 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition-colors"
+											className="cursor-pointer w-full px-6 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition-colors"
 										>
 											Login
 										</button>

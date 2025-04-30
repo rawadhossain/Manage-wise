@@ -120,7 +120,7 @@ export default function CreateTaskDialog() {
 									<FormControl>
 										<Textarea
 											{...field}
-											className="min-h-[120px] max-h-[200px] overflow-y-auto resize-none"
+											className="col-span-3"
 											placeholder="Task description"
 											rows={10}
 										/>

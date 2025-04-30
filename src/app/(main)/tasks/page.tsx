@@ -21,7 +21,7 @@ const home = async () => {
 		},
 	});
 	return (
-		<div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-6 min-h-screen">
+		<div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-6 min-h-screen">
 			<header className="text-center mb-16">
 				<h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100">
 					<span className="font-bold text-blue-500">

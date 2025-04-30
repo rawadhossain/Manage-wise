@@ -6,6 +6,7 @@ import { GithubIcon, ListMinus, TwitterIcon, Menu, X, ListChecks } from "lucide-
 import Link from "next/link";
 
 import { useState, useEffect, useRef } from "react";
+import { Button } from "./ui/button";
 
 const socialLinks = [
 	{
@@ -44,9 +45,8 @@ export default function Navbar() {
 					<Link href="/" className="flex items-center space-x-2">
 						<ListChecks className="h-6 w-6" />
 
-						<h1 className="text-xl text-blue-500 font-medium cursor-pointer">
-							Manage
-							<span className="text-slate-800 dark:text-[#E7E9EC]">Wise</span>
+						<h1 className="text-2xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent cursor-pointer">
+							ManageWise
 						</h1>
 					</Link>
 				</div>
@@ -67,29 +67,29 @@ export default function Navbar() {
 					</div>
 					<div className="hidden md:block">
 						{session.data?.user ? (
-							<button
+							<Button
 								onClick={() => signOut()}
-								className="px-6 py-1 bg-blue-500 text-white rounded-md hover:bg-blue-700 transition-colors cursor-pointer"
+								className="px-6 py-1 bg-blue-500 text-white hover:bg-blue-700 transition-colors cursor-pointer"
 							>
 								Logout
-							</button>
+							</Button>
 						) : (
-							<button
+							<Button
 								onClick={() => signIn()}
 								className="px-6 py-1 bg-blue-500 text-white rounded-md hover:bg-blue-700 transition-colors cursor-pointer"
 							>
 								Login
-							</button>
+							</Button>
 						)}
 					</div>
 					<ThemeToggle />
-					<button
+					<Button
 						className="md:hidden"
 						onClick={() => setIsMenuOpen(!isMenuOpen)}
 						aria-label="Toggle menu"
 					>
 						{isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-					</button>
+					</Button>
 				</div>
 			</div>
 			{isMenuOpen && (
@@ -100,13 +100,13 @@ export default function Navbar() {
 						className="fixed inset-y-0 left-0 w-64 bg-white dark:bg-[#121212] shadow-lg z-50 transform transition-transform duration-300 ease-in-out flex flex-col min-h-screen"
 					>
 						<div className="flex flex-col h-full p-4">
-							<button
+							<Button
 								className="self-end mb-4"
 								onClick={() => setIsMenuOpen(false)}
 								aria-label="Close menu"
 							>
 								<X className="h-6 w-6" />
-							</button>
+							</Button>
 							<div className="flex flex-col items-center flex-grow gap-4 mt-20">
 								<div className="flex flex-col gap-4">
 									{socialLinks.map((link) => (
@@ -126,7 +126,7 @@ export default function Navbar() {
 								</div>
 								<div>
 									{session.data?.user ? (
-										<button
+										<Button
 											onClick={() => {
 												signOut();
 												setIsMenuOpen(false);
@@ -134,9 +134,9 @@ export default function Navbar() {
 											className="w-full px-6 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition-colors cursor-pointer"
 										>
 											Logout
-										</button>
+										</Button>
 									) : (
-										<button
+										<Button
 											onClick={() => {
 												signIn();
 												setIsMenuOpen(false);
@@ -144,7 +144,7 @@ export default function Navbar() {
 											className="cursor-pointer w-full px-6 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition-colors"
 										>
 											Login
-										</button>
+										</Button>
 									)}
 								</div>
 							</div>

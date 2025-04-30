@@ -18,12 +18,12 @@ export async function createTask(title: string, description: string, dueDate: Da
 		throw new Error("You must be signed in to create a task");
 	}
 
-	const userId = session.user?.email;
+	const userEmail = session.user?.email;
 
 	try {
 		const findUser = await prisma.user.findUnique({
 			where: {
-				email: userId as string,
+				email: userEmail as string,
 			},
 		});
 

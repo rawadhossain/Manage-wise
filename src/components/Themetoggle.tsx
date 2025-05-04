@@ -19,7 +19,7 @@ export function ThemeToggle() {
 
 	return (
 		<Button
-			className="cursor-pointer"
+			className="cursor-pointer overflow-hidden hover:bg-transparent"
 			variant="ghost"
 			size="icon"
 			onClick={() => setTheme(theme === "light" ? "dark" : "light")}

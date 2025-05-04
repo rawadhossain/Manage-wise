@@ -44,10 +44,13 @@ export default function SignInSignUp() {
 
 	return (
 		<div className=" flex items-center justify-center m-4 mt-16">
-			<div className="border border-gray-200 dark:border-gray-700 rounded-lg shadow-xl dark:shadow-gray-800 p-8 max-w-md w-full">
+			<div className="border border-purple-200 dark:border-gray-700 rounded-lg shadow-xl dark:shadow-gray-800 p-8 max-w-md w-full">
 				<div className="text-center mb-8">
 					<h1 className="text-3xl font-bold text-gray-900 dark:text-white">
-						Welcome to <span className="text-blue-600 font-bold">ManageWise</span>
+						Welcome to{" "}
+						<span className="font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
+							ManageWise
+						</span>
 					</h1>
 					<p className="text-gray-600 dark:text-gray-400 mt-2">
 						Login or create your account
@@ -95,13 +98,13 @@ export default function SignInSignUp() {
 					</div>
 					<button
 						type="submit"
-						className="cursor-pointer w-full bg-blue-600 hover:bg-blue-700 text-white flex rounded-md h-10 items-center justify-center text-sm"
+						className="cursor-pointer w-full bg-gradient-to-r from-purple-500 to-indigo-600 text-white shadow-lg shadow-purple-500/20 hover:from-purple-500/90 hover:to-indigo-600/90 hover:shadow-purple-500/30 active:scale-[0.98] transition-all duration-200 flex rounded-md h-10 items-center justify-center text-sm"
 						disabled={isLoading}
 					>
 						{isLoading ? (
 							"Processing..."
 						) : (
-							<div className="flex items-center">
+							<div className="flex items-center ">
 								Continue
 								<ArrowRight className="ml-2 h-4 w-5" />
 							</div>

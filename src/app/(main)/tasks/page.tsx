@@ -24,7 +24,7 @@ const home = async () => {
 		<div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-6 min-h-screen">
 			<header className="text-center mb-16">
 				<h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100">
-					<span className="font-bold text-blue-500">
+					<span className="font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
 						Manage
 						<span className="text-gray-800 dark:text-[#E7E9EC]">Wise</span>
 					</span>{" "}

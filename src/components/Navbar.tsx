@@ -69,14 +69,16 @@ export default function Navbar() {
 						{session.data?.user ? (
 							<Button
 								onClick={() => signOut()}
-								className="px-6 py-1 bg-blue-500 text-white hover:bg-blue-700 transition-colors cursor-pointer"
+								variant="ocean"
+								className="px-6 py-1 rounded-full  cursor-pointer"
 							>
 								Logout
 							</Button>
 						) : (
 							<Button
 								onClick={() => signIn()}
-								className="px-6 py-1 bg-blue-500 text-white rounded-md hover:bg-blue-700 transition-colors cursor-pointer"
+								variant="ocean"
+								className="px-6 py-1 rounded-full cursor-pointer"
 							>
 								Login
 							</Button>

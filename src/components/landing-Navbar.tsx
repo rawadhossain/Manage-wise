@@ -61,7 +61,7 @@ export function LandingNavbar({ scrolled }: NavbarProps) {
 				<div className="hidden md:flex items-center gap-4">
 					<ThemeToggle />
 					<Link href="/tasks">
-						<Button size="sm" className="rounded-full cursor-pointer">
+						<Button variant="ocean" size="sm" className="rounded-full cursor-pointer">
 							Get Started
 						</Button>
 					</Link>

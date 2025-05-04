@@ -1,12 +1,12 @@
 import { Button } from "@/components/ui/button";
-import { ChevronRight, CheckCircle2 } from "lucide-react";
+import { ChevronRight, CheckCircle2, ArrowRightIcon } from "lucide-react";
 import Link from "next/link";
 
 export function Hero() {
 	return (
 		<section className="relative pt-32 pb-20 md:pt-40 md:pb-32 overflow-hidden">
 			<div className="container px-4 mx-auto text-center relative z-10">
-				<div className="inline-flex items-center gap-2 py-1 px-3 rounded-full border border-purple-200 bg-purple-50 dark:bg-purple-950/30 dark:border-purple-800 mb-8 animate-fade-in">
+				<div className="inline-flex items-center gap-2 py-1 px-3 rounded-full border border-purple-200 bg-purple-50 dark:bg-purple-900/60 dark:border-purple-700 mb-8 animate-fade-in">
 					<span className="text-xs font-medium text-purple-700 dark:text-purple-300">
 						Welcome to ManageWise 2.0
 					</span>
@@ -19,7 +19,7 @@ export function Hero() {
 					<span className="bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
 						Simplify
 					</span>{" "}
-					how your team manages tasks
+					how you manage tasks
 				</h1>
 
 				<p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto mb-10 animate-fade-in [animation-delay:250ms]">
@@ -29,9 +29,16 @@ export function Hero() {
 
 				<div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16 animate-fade-in [animation-delay:350ms]">
 					<Link href="/tasks">
-						<Button size="lg" className="rounded-full cursor-pointer">
+						<Button
+							variant="ocean"
+							effect="expandIcon"
+							icon={ArrowRightIcon}
+							iconPlacement="right"
+							size="lg"
+							className="rounded-full relative cursor-pointer"
+						>
 							Get Started
-							<ChevronRight className="ml-2 h-4 w-4" />
+							{/* <ChevronRight className="ml-2 h-4 w-4" /> */}
 						</Button>
 					</Link>
 
@@ -57,7 +64,7 @@ export function Hero() {
 					</div>
 				</div>
 
-				<div className="relative mx-auto max-w-5xl animate-fade-in-up [animation-delay:550ms]">
+				{/* <div className="relative mx-auto max-w-5xl animate-fade-in-up [animation-delay:550ms]">
 					<div className="aspect-[16/9] overflow-hidden rounded-xl border shadow-xl bg-background relative z-10">
 						<img
 							src="https://images.pexels.com/photos/3182773/pexels-photo-3182773.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
@@ -66,7 +73,7 @@ export function Hero() {
 						/>
 					</div>
 					<div className="absolute -bottom-6 -right-6 -left-6 -top-6 rounded-xl bg-gradient-to-br from-purple-600 to-blue-600 opacity-10 blur-xl"></div>
-				</div>
+				</div> */}
 			</div>
 
 			{/* Background decoration */}

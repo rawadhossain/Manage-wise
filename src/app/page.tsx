@@ -28,6 +28,7 @@ function App() {
 	return (
 		<div className="min-h-screen bg-background font-sans">
 			<LandingNavbar scrolled={scrolled} />
+
 			<main>
 				<Hero />
 				<Features />
